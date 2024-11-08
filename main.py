@@ -111,12 +111,17 @@ def main(args):
             lr=args['lr'],
             device=args['device']
         )
-    elif args['method'] == ('gtan'):
+        
+        ######################################################
+    elif args['method'] == ('gtan'):                                            #gtan
         from methods.gtan.gtan_main import gtan_main, load_gtan_data
         feat_data, labels, train_idx, test_idx, g, cat_features = load_gtan_data(
             args['dataset'], args['test_size'])
         gtan_main(
             feat_data, g, train_idx, test_idx, labels, args, cat_features)
+        
+        #######################################################
+        
     elif args['method'] == ("rgtan"):
         from methods.rgtan.rgtan_main import rgtan_main, loda_rgtan_data
         feat_data, labels, train_idx, test_idx, g, cat_features, neigh_features = loda_rgtan_data(
