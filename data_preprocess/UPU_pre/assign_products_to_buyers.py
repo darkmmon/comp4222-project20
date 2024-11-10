@@ -13,7 +13,7 @@ def assign_products_to_buyers(matrix):
         # Add the product to the buyer's set of products
         buyer_with_products[buyer_id].add(product_id)
     
-    print(len(buyer_with_products))
+    # print(len(buyer_with_products))
 
     return buyer_with_products
 
