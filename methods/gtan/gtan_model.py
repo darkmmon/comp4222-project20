@@ -122,7 +122,7 @@ class TransformerConv(nn.Module):
             :param gated: whether to use gate
             :param layer_norm: whether to use layer regularization
             :param activation: the type of activation function   
-        """
+        """ 
 
         super(TransformerConv, self).__init__()
         self._in_src_feats, self._in_dst_feats = expand_as_pair(in_feats)
@@ -354,3 +354,4 @@ class GraphAttnModel(nn.Module):
         logits = self.layers[-1](h)
 
         return logits
+

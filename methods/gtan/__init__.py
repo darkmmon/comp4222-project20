@@ -7,7 +7,7 @@ class early_stopper(object):
     def __init__(self, patience=7, verbose=False, delta=0):
         """
         Initialize the early stopper
-        :param patience: the maximum number of rounds tolerated
+        :param patience: the maximum number of rounds tolerated     ----> max epoch, if reach 7-> stop
         :param verbose: whether to stop early
         :param delta: the regularization factor
         """

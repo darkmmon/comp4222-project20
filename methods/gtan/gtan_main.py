@@ -17,7 +17,8 @@ from .gtan_model import GraphAttnModel
 from . import *
 
 
-def gtan_main(feat_df, graph, train_idx, test_idx, labels, args, cat_features):
+def gtan_main(feat_df, graph, train_idx, test_idx, labels, args, cat_features):     
+    #(data flame containing node featire, graph object representing graph structure, index for training and testing node, Node labels (target values for classification), A dictionary of hyperparameters and other arguments (e.g., device, learning rate, etc.),  Categorical features in the node data.)
     device = args['device']
     graph = graph.to(device)
     oof_predictions = torch.from_numpy(
@@ -35,7 +36,7 @@ def gtan_main(feat_df, graph, train_idx, test_idx, labels, args, cat_features):
     y = labels
     labels = torch.from_numpy(y.values).long().to(device)
     loss_fn = nn.CrossEntropyLoss().to(device)
-    for fold, (trn_idx, val_idx) in enumerate(kfold.split(feat_df.iloc[train_idx], y_target)):
+    for fold, (trn_idx, val_idx) in enumerate(kfold.split(feat_df.iloc[train_idx], y_target)):   
         print(f'Training fold {fold + 1}')
         trn_ind, val_ind = torch.from_numpy(np.array(train_idx)[trn_idx]).long().to(
             device), torch.from_numpy(np.array(train_idx)[val_idx]).long().to(device)
