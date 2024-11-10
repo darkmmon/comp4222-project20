@@ -21,11 +21,14 @@ def read_json_file(path = 'data_preprocess/Subscription_Boxes.jsonl'):
                 verified_purchase = json_obj.get('verified_purchase')
                 
 
-                matrix.append((rating, length_of_title, length_of_text, asin, user_id, timestamp, helpful_vote, product_ID, verified_purchase))
+                matrix.append((rating, length_of_title, length_of_text, asin, user_id, timestamp, helpful_vote, verified_purchase))
                 
     return np.array(matrix, dtype = object)       #[rating, length of title, length of text, user_ID, timestamp, helpful_vote, product_ID, verified_purchase] * 16216 (buy record, not user)
 
-matrix = read_json_file()
-print(matrix[0]) 
+
+if __name__ == '__main__':
+    matrix = read_json_file()
+    print(matrix[1])
+
 
 #{"rating": 1.0, "title": "USELESS", "text": "Absolutely useless nonsense and a complete waste of money. Kitty didn't like any of the items", "images": [], "asin": "B07G584SHG", "parent_asin": "B09WC47S3V", "user_id": "AEMJ2EG5ODOCYUTI54NBXZHDJGSQ", "timestamp": 1602133857705, "helpful_vote": 2, "verified_purchase": true}
