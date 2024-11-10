@@ -22,44 +22,6 @@ DATADIR = os.path.join(os.path.dirname(
     os.path.abspath(__file__)), "..", "data/")
 
 
-# def featmap_gen(tmp_df=None):
-#     """
-#     Handle S-FFSD dataset and do some feature engineering
-#     :param tmp_df: the feature of input dataset
-#     """
-#     # time_span = [2, 5, 12, 20, 60, 120, 300, 600, 1500, 3600, 10800, 32400, 64800, 129600,
-#     #              259200]  # Increase in the number of time windows to increase the characteristics.
-#     time_span = [2, 3, 5, 15, 20, 50, 100, 150,
-#                  200, 300, 864, 2590, 5100, 10000, 24000]
-#     time_name = [str(i) for i in time_span]
-#     time_list = tmp_df['Time']
-#     post_fe = []
-#     for trans_idx, trans_feat in tqdm(tmp_df.iterrows()):
-#         new_df = pd.Series(trans_feat)
-#         temp_time = new_df.Time
-#         temp_amt = new_df.Amount
-#         for length, tname in zip(time_span, time_name):
-#             lowbound = (time_list >= temp_time - length)
-#             upbound = (time_list <= temp_time)
-#             correct_data = tmp_df[lowbound & upbound]
-#             new_df['trans_at_avg_{}'.format(
-#                 tname)] = correct_data['Amount'].mean()
-#             new_df['trans_at_totl_{}'.format(
-#                 tname)] = correct_data['Amount'].sum()
-#             new_df['trans_at_std_{}'.format(
-#                 tname)] = correct_data['Amount'].std()
-#             new_df['trans_at_bias_{}'.format(
-#                 tname)] = temp_amt - correct_data['Amount'].mean()
-#             new_df['trans_at_num_{}'.format(tname)] = len(correct_data)
-#             new_df['trans_target_num_{}'.format(tname)] = len(
-#                 correct_data.Target.unique())
-#             new_df['trans_location_num_{}'.format(tname)] = len(
-#                 correct_data.Location.unique())
-#             new_df['trans_type_num_{}'.format(tname)] = len(
-#                 correct_data.Type.unique())
-#         post_fe.append(new_df)
-#     return pd.DataFrame(post_fe)
-
 
 def sparse_to_adjlist(sp_matrix, filename):
     """
