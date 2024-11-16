@@ -1,20 +1,22 @@
-### comp4222-project20 edge prediction of trusting on Epinions
+### comp4222-project20 Edge Prediction of Trust Relationship on Epinions
 
-## group members
+## Group members
 
 darkmmon: YIU, Tin Cheung Ivan (Ivan)
 lkmremy: LEUNG, Kam Ming (Jeremy)
 DavidSitu: SITU, Kam Chung (David)
 
-## dataset
+## Dataset
 
-our dataset is found [here](https://snap.stanford.edu/data/soc-sign-epinions.html)
+Data is collected as a subset of [this dataset](https://snap.stanford.edu/data/soc-sign-epinions.html).
+This is a who-trust-whom online social network of a a general consumer review site Epinions.com.
 
-## model
+## Model
 
-we would use GraphSAGE to predict if two given node would be trusted or not.
+We would use Graph Attention Network (GAT) to carry out link prediction.
+We first processed the data into graphs and initialized with learnable embeddings, then used the GATv2Conv model from PyTorch.
 
-## usage
+## Usage
 
-1. unzip the file in `/data`
-2. run the code in main.ipynb
+1. Un-zip the file in `/data`
+2. Run the code in main.ipynb
