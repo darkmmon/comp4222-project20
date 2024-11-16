@@ -19,4 +19,11 @@ We first processed the data into graphs and initialized with learnable embedding
 ## Usage
 
 1. Un-zip the file in `/data`
-2. Run the code in main.ipynb
+2. Run the code in `main.ipynb`
+
+## File Structure
+
+`/data/soc-sign-epinions.txt.gz` and `/data/soc-sign-epinions.txt` - dataset
+`main.ipynb` - main code for loading data, encoding and decoding, GAT model and validation
+`EarlyStopping.py` - implements a threshold to stop training at low improvement
+`checkpoint.pt`(generated) - saves the state of the model for testing loss
